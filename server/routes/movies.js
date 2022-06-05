@@ -41,19 +41,21 @@ router.post('/delete', async (req, res) => {
 });
 
 router.get('/showMovies', async (req, res) => {
-    await Movie.find({},{_id: 0}).lean().exec((err, data) => {
-        if (err) throw err;
-        const csvFields = ['tytul', 'rezyser', 'ocena']
-        const json2csvParser = new Json2csvParser({
-            csvFields
-        });
-        const csvData = json2csvParser.parse(data);
-        fs.writeFile("../client/src/movies.csv", csvData, function(error) {
-            if (error) throw error;
-            console.log("Write to movies.csv successfully!");
-        });
-        res.send('File downloaded Successfully')
-    });
+    // await Movie.find({},{_id: 0}).lean().exec((err, data) => {
+    //     if (err) throw err;
+    //     const csvFields = ['tytul', 'rezyser', 'ocena']
+    //     const json2csvParser = new Json2csvParser({
+    //         csvFields
+    //     });
+    //     const csvData = json2csvParser.parse(data);
+    //     fs.writeFile("../client/src/movies.csv", csvData, function(error) {
+    //         if (error) throw error;
+    //         console.log("Write to movies.csv successfully!");
+    //     });
+    //     res.send('File downloaded Successfully')
+    // });
+    const data = await Movie.find({},{_id: 0})
+    res.status(201).send({data})
 });
 
 module.exports = router
