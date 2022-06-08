@@ -159,7 +159,7 @@ const Edit = () => {
                         value={data.ocena}
                         required
                         className={styles.input}
-                    />
+                    /><br></br>
                     
                     {error && <div
                         className={styles.error_msg}>{error}</div>}
@@ -205,7 +205,7 @@ const Edit = () => {
                         value={data1.ocena}
                         required
                         className={styles.input}
-                    />
+                    /><br></br>
                     
                     {error && <div
                         className={styles.error_msg}>{error}</div>}
