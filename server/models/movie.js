@@ -1,5 +1,4 @@
 const mongoose = require("mongoose")
-const Joi = require("joi")
 const movieSchema = new mongoose.Schema({
     tytul: { type: String, required: false },
     rezyser: { type: String, required: false },
