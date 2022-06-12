@@ -15,6 +15,9 @@
 	margin-left: 20px;
 	width: 20%;
 }
+h1{
+	margin: 20px;
+}
 .navbar_buttons{
 	width: 80%;
 	justify-content: right;
@@ -30,4 +33,7 @@
 	font-size: 14px;
 	cursor: pointer;
 	margin-right: 20px;
+}
+.table{
+	margin-top: 20px;
 }

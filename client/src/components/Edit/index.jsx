@@ -62,7 +62,7 @@ const Edit = () => {
         try {
             const url = "http://localhost:8080/api/edit"
             const { data: res } = await axios.post(url, data)
-            navigate("/edit")
+            window.location = "/edit"
             console.log(res.message)
         } catch (error) {
             if (
@@ -79,7 +79,7 @@ const Edit = () => {
         try {
             const url = "http://localhost:8080/api/edit/update"
             const { data: res } = await axios.post(url, data1)
-            navigate("/edit")
+            window.location = "/edit"
             console.log(res.message)
         } catch (error) {
             if (
@@ -96,7 +96,7 @@ const Edit = () => {
         try {
             const url = "http://localhost:8080/api/edit/delete"
             const { data: res } = await axios.post(url, data2)
-            navigate("/edit")
+            window.location = "/edit"
             console.log(res.message)
         } catch (error) {
             if (
@@ -128,10 +128,12 @@ const Edit = () => {
                 </div>
             </nav>
             <div className={styles.main_container}>
+                <h1>Edycja danych</h1>
                 <div className={styles.form}>
+                
                 <form className={styles.form_container}
                     onSubmit={handleSubmit}>
-                    <h1>Edycja danych</h1>
+                    
                     <h2>Dodaj film</h2>
                     <input
                         type="text"

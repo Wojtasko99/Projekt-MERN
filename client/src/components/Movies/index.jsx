@@ -1,7 +1,25 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import DataTable from './data-table';
-
+import styles from "./styles.module.css"
+import { Table } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+const handleLogout = () => {
+    localStorage.removeItem("token")
+    window.location.reload()
+}
+const handleForm = () => {
+    window.location = "/form"
+}
+const handleMain = () => {
+    window.location = "/"
+}
+const handleMovies = () => {
+    window.location = "/movies"
+}
+const handleEdit = () => {
+    window.location = "/edit"
+}
 export default class Users extends Component {
 
     constructor(props) {
@@ -28,19 +46,39 @@ export default class Users extends Component {
     render() {
         return (
             <div className="wrapper-users">
+                <nav className={styles.navbar}>
+                <a href="#" onClick={handleMain}><h1>MoviesWeb</h1></a>
+                <div className={StyleSheet.navbar_buttons}>
+                    <button className={styles.white_btn} onClick={handleEdit}>
+                        Edytuj dane
+                    </button>
+                    <button className={styles.white_btn} onClick={handleMovies}>
+                        Filmy
+                    </button>
+                    <button className={styles.white_btn} onClick={handleForm}>
+                        Formularz
+                    </button>
+                    <button className={styles.white_btn} onClick={handleLogout}>
+                        Logout
+                    </button>
+                </div>
+
+            </nav>
                 <div className="container">
-                    <table className="table table-striped table-dark">
+                    <div className={styles.table}>
+                    <Table striped bordered hover size="sm">
                         <thead className="thead-dark">
                             <tr>
-                                <td>Rezyser</td>
-                                <td>Tytul</td>
-                                <td>Ocena</td>
+                                <th>Rezyser</th>
+                                <th>Tytul</th>
+                                <th>Ocena</th>
                             </tr>
                         </thead>
                         <tbody>
                             {this.dataTable()}
                         </tbody>
-                    </table>
+                    </Table>
+                    </div>
                 </div>
             </div>
         )

@@ -1,11 +1,5 @@
 const router = require("express").Router()
-const db = require("../db");
 const Movie = require("../models/movie")
-const path = require('path');
-const ejs = require('ejs');
-const fs = require('fs');
-const Form = require("../models/form");
-const Json2csvParser = require("json2csv").Parser;
 
 router.post('/', async (req, res) => {
     try {
@@ -42,7 +36,8 @@ router.post('/delete', async (req, res) => {
 });
 
 router.route('/fetchMovies').get((req, res) => {
-    Movie.find((error, data) => {
+
+    Movie.find().sort({ocena: -1}).exec((error, data) => {
         if (error) {
             return next(error)
         } else {
