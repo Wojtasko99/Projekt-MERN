@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react"
 import axios from "axios"
 import { Link, useNavigate } from "react-router-dom"
 import styles from "./styles.module.css"
@@ -30,10 +30,11 @@ const Edit = () => {
         setData2({ ...data2, [e.target.name]: e.target.value })
     }
 
-
+    
     const handleLogout = () => {
         localStorage.removeItem("token")
-        window.location = "/"
+        localStorage.removeItem("role")
+        window.location.reload()
     }
 
     const handleForm = () => {
@@ -109,7 +110,7 @@ const Edit = () => {
         }
     }
     return (
-        <div className={styles.main_container}>
+        <div className={styles.container}>
             <nav className={styles.navbar}>
                 <a href="#" onClick={handleMain}><h1>MoviesWeb</h1></a>
                 <div className={StyleSheet.navbar_buttons}>
@@ -127,8 +128,12 @@ const Edit = () => {
                     </button>
                 </div>
             </nav>
-            <div className={styles.main_container}>
-                <h1>Edycja danych</h1>
+            <div className={styles.tytul}>
+            <h1>Edycja danych</h1>
+            </div>
+            
+            <div className="container">
+            
                 <div className={styles.form}>
                 
                 <form className={styles.form_container}
@@ -252,8 +257,8 @@ const Edit = () => {
                 </form>
                 </div>
             </div>
-
-        </div>
+            <div className={styles.navbar}></div>
+            </div>
     )
 }
 export default Edit

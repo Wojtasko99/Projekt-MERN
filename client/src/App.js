@@ -11,21 +11,29 @@ import LoginAdmin from "./components/LoginAdmin"
 function App() {
   
     const user = localStorage.getItem("token")
-    return (
-      <Routes>
-        {user && <Route path="/" exact element={<Main />} />}
-        <Route path="/signup" exact element={<Signup />} />
-        <Route path="/login" exact element={<Login />} />
-        <Route path="/loginAdm" exact element={<LoginAdmin />} />
-        <Route path="/" element={<Navigate replace to="/login" />} />
-        { user && <Route path="/form" exact element={<Form_Movie />} />}
-        <Route path="/form" element={<Navigate replace to="/login" />} />
-        { user && <Route path="/movies" exact element={<Movies />} />}
-        <Route path="/movies" exact element={<Navigate replace to="/login" />} />
-        { user && <Route path="/edit" exact element={<Edit />} />}
-        <Route path="/edit" exact element={<Navigate replace to="/login" />} />
-      </Routes>
-    )
+    const admin = localStorage.getItem("role")
+    
+      return (
+        <Routes>
+          {admin && <Route path="/" exact element={<Main />} />}
+          {user && <Route path="/" exact element={<Main />} />}
+          <Route path="/signup" exact element={<Signup />} />
+          <Route path="/login" exact element={<Login />} />
+          <Route path="/loginAdm" exact element={<LoginAdmin />} />
+          <Route path="/" element={<Navigate replace to="/login" />} />
+          { admin && <Route path="/form" exact element={<Form_Movie />} />}
+          { user && <Route path="/form" exact element={<Form_Movie />} />}
+          <Route path="/form" element={<Navigate replace to="/login" />} />
+          { admin && <Route path="/movies" exact element={<Movies />} />}
+          { user && <Route path="/movies" exact element={<Movies />} />}
+          <Route path="/movies" exact element={<Navigate replace to="/login" />} />
+          { admin  && <Route path="/edit" exact element={<Edit />} />}
+          { user  && <Route path="/edit" exact element={<Navigate replace to="/" />} />}
+          <Route path="/edit" exact element={<Navigate replace to="/login" />} />
+        </Routes>
+
+      )
+    
   }
 
 export default App

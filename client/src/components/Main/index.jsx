@@ -5,6 +5,7 @@ import strange from "../../images/strange.jpg"
 const Main = () => {
     const handleLogout = () => {
         localStorage.removeItem("token")
+        localStorage.removeItem("role")
         window.location.reload()
     }
     const handleForm = () => {
@@ -21,7 +22,9 @@ const Main = () => {
     }
 
     return (
-        <div className={styles.main_container}>
+        
+        
+        <div className={styles.container}>
             <nav className={styles.navbar}>
                 <a href="#" onClick={handleMain}><h1>MoviesWeb</h1></a>
                 <div className={StyleSheet.navbar_buttons}>
@@ -40,7 +43,7 @@ const Main = () => {
                 </div>
 
             </nav>
-            <div className={styles.container}>
+            <div className="container">
                 <div className={styles.title}>
                     <h1>Sprawdź najnowsze filmy!</h1>
                 </div>
@@ -75,6 +78,7 @@ const Main = () => {
                     </div>
                 </div>
             </div>
+            <div className={styles.navbar}></div>
         </div>
     )
 }

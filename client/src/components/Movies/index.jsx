@@ -6,6 +6,7 @@ import { Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 const handleLogout = () => {
     localStorage.removeItem("token")
+    localStorage.removeItem("role")
     window.location.reload()
 }
 const handleForm = () => {
@@ -45,7 +46,7 @@ export default class Users extends Component {
 
     render() {
         return (
-            <div className="wrapper-users">
+            <div className={styles.container}>
                 <nav className={styles.navbar}>
                 <a href="#" onClick={handleMain}><h1>MoviesWeb</h1></a>
                 <div className={StyleSheet.navbar_buttons}>
@@ -65,6 +66,7 @@ export default class Users extends Component {
 
             </nav>
                 <div className="container">
+                    
                     <div className={styles.table}>
                     <Table striped bordered hover size="sm">
                         <thead className="thead-dark">
@@ -80,6 +82,7 @@ export default class Users extends Component {
                     </Table>
                     </div>
                 </div>
+                <div className={styles.navbar}></div>
             </div>
         )
     }

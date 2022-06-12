@@ -1,12 +1,24 @@
 db.movies.insertMany([
-{tytul: "Skazani na Shawshank", rezyser: "Frank Darabont", ocena: "8.1"},
-{tytul: "Castaway", rezyser: "Frank Darabont", ocena: "8.1"},
-{tytul: "The Northman", rezyser: "Frank Darabont", ocena: "8.1"},
-{tytul: "Lighthouse", rezyser: "Frank Darabont", ocena: "8.1"},
-{tytul: "Toy Story", rezyser: "Frank Darabont", ocena: "8.1"},
-{tytul: "Toy Story 2", rezyser: "Frank Darabont", ocena: "8.1"},
-{tytul: "Toy Story 3", rezyser: "Frank Darabont", ocena: "8.1"},
-{tytul: "Morbius", rezyser: "Frank Darabont", ocena: "8.1"}
+{tytul: "Skazani na Shawshank", rezyser: "Frank Darabont", ocena: "8.8"},
+{tytul: "Zielona mila", rezyser: "Frank Darabont", ocena: "8.6"},
+{tytul: "Forest Gump", rezyser: "Robert Zemeckis", ocena: "8.5"},
+{tytul: "Leon zawodowiec", rezyser: "Luc Besson", ocena: "8.1"},
+{tytul: "Matrix", rezyser: "Wachowskis", ocena: "7.6"},
+{tytul: "Milczenie owiec", rezyser: "Jonathan Demme", ocena: "8.2"},
+{tytul: "Avatar", rezyser: "James Cameron", ocena: "7.4"},
+{tytul: "Shrek", rezyser: "Adrew Adamson", ocena: "7.8"},
+{tytul: "Szeregowiec Ryan", rezyser: "Steven Spielberg", ocena: "8.1"},
+{tytul: "Podziemny krąg", rezyser: "David Fincher", ocena: "8.3"},
+{tytul: "Pulp Fiction", rezyser: "Quentin Tarantino", ocena: "8.3"},
+{tytul: "Titanic", rezyser: "James Cameron", ocena: "7.3"},
+{tytul: "Nietykalni", rezyser: "Olivier Nakache", ocena: "8.7"},
+{tytul: "Ojciec chrzestny", rezyser: "Francis Ford Coppola", ocena: "8.6"},
+{tytul: "Szósty zmysł", rezyser: "M. Night Shyamalan", ocena: "7.8"},
+{tytul: "Incepcja", rezyser: "Christopher Nolan", ocena: "8.3"},
+{tytul: "Siedem", rezyser: "David Fincher", ocena: "8.3"},
+{tytul: "Wyspa tajemnic", rezyser: "Martin Scorsese", ocena: "8.2"},
+{tytul: "Pianista", rezyser: "Roman Polański", ocena: "8.3"},
+{tytul: "Władca Pierścieni: Drużyna Pierścienia", rezyser: "Peter Jackson", ocena: "8.0"},
 ])
 
 db.admins.insertOne({email: "admin@admin.pl", password: "$2b$10$VIA.XcaajmVAOnaLj1ULVu6xxxxvMDci5hbdNKyYKTRE2FQ/5FEgC", roles: "admin"})

@@ -21,7 +21,8 @@ const Form = () => {
 
     const handleLogout = () => {
         localStorage.removeItem("token")
-        window.location = "/"
+        localStorage.removeItem("role")
+        window.location.reload()
     }
 
     const handleForm = () => {
@@ -60,7 +61,7 @@ const Form = () => {
     }
     return (
 
-        <div className={styles.con}>
+        <div className={styles.container}>
             <nav className={styles.navbar}>
                 <a href="#" onClick={handleMain}><h1>MoviesWeb</h1></a>
                 <div className={StyleSheet.navbar_buttons}>
@@ -145,6 +146,7 @@ const Form = () => {
                 </form>
                 
             </div>
+            <div className={styles.navbar}></div>
         </div>
 
     );
