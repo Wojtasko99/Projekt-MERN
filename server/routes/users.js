@@ -19,4 +19,15 @@ router.post("/", async (req, res) => {
         res.status(500).send({ message: "Internal Server Error" })
     }
 })
+
+router.route('/checkUsers').get((req, res) => {
+
+    User.find().exec((error, data) => {
+        if (error) {
+            return next(error)
+        } else {
+            res.json(data)
+        }
+    })
+})
 module.exports = router

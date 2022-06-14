@@ -35,6 +35,8 @@ const Edit = () => {
         const sort = e.target.value;
         if (sort === "forms") {
             window.location = "/formsEdit"
+        }else if (sort === "users") {
+            window.location = "/checkUsers"
         }
     }
     
@@ -143,6 +145,8 @@ const Edit = () => {
                 <select className={styles.select} name="select" onChange={handleSelect}>
                     <option value="movies">Edytuj filmy</option>
                     <option value="forms">Przeglądaj formularze</option>
+                    <option value="users">Przeglądaj użytkowników</option>
+                    
                 </select>
             </form>
             </div>

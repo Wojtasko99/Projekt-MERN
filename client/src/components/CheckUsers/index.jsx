@@ -25,8 +25,8 @@ const handleSelect = e => {
     const sort = e.target.value;
     if (sort === "movies") {
         window.location = "/edit"
-    }else if (sort === "users") {
-        window.location = "/checkUsers"
+    }else if (sort === "forms") {
+        window.location = "/formsEdit"
     }
 }
 
@@ -35,33 +35,11 @@ export default class Users extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { usersCollection: [], data: "" };
+        this.state = { usersCollection: []};
         
     }
-    
-    
-    handleDelete = e => {
-        this.setState({data: "ObjectId('"+e.target.value+"')"})
-    }
-    handleSubmitUsun(){
-        try{
-            const url = "http://localhost:8080/api/form/deleteForm"
-            res.send(this.data)
-            const { data: res } =  axios.post(url, this.data)
-            console.log(res.message)
-        }catch{
-            console.log(this.data)
-        }  
-    }
-
-    handleReset(){
-        window.location="/formsEdit"
-    }
-    
-
-
     componentDidMount() {
-        axios.get("http://localhost:8080/api/forms/fetchForms")
+        axios.get("http://localhost:8080/api/users/checkUsers")
             .then(res => {
                 this.setState({ usersCollection: res.data });
             })
@@ -102,10 +80,9 @@ export default class Users extends Component {
                 <h1>Edycja danych</h1>
             <form>
                 <select className={styles.select} name="select" onChange={handleSelect}>
+                    <option value="users">Przeglądaj użytkowników</option>
                     <option value="forms">Przeglądaj formularze</option>
                     <option value="movies">Edytuj filmy</option>
-                    <option value="users">Przeglądaj użytkowników</option>
-
                 </select>
             </form>
             </div>
@@ -115,11 +92,10 @@ export default class Users extends Component {
                         <thead className="thead-dark">
                             <tr>
                                 <th>ID</th>
+                                <th>First Name</th>
+                                <th>Second Name</th>
                                 <th>Email</th>
-                                <th>Favorite Movie</th>
-                                <th>Country</th>
-                                <th>Favorite Types</th>
-                                <th>Site rate</th>
+                                <th>Password</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -131,6 +107,7 @@ export default class Users extends Component {
                 </div>
                 <div className={styles.navbar}></div>
             </div>
+            
         )
     }
 }
