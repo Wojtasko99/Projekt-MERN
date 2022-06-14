@@ -30,6 +30,13 @@
 	font-size: 14px;
 	cursor: pointer;
 	margin-right: 20px;
+	text-decoration: none;
+	text-align: center;
+	color: black;
+}
+.white_btn:hover{
+	color: #534b3d;
+	transform: scale(1.1);
 }
 .form_container {
 	display: flex;
@@ -114,6 +121,8 @@
 	font-size: 14px;
 	display: flex;
 	justify-content: space-between;
+	text-align: center;
+	margin-right: 5px;
 }.container {
 	background-color: #a4aca9;
 	width: auto;

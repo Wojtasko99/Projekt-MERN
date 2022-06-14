@@ -45,5 +45,17 @@ router.route('/fetchMovies').get((req, res) => {
         }
     })
 })
+router.post('/delete', async (req, res) => {
+    try{
+        const filter = { id: req.body.id }
+        let doc = await Movie.deleteOne(filter)
+        res.status(201).send({ message: "Deleted" })
+}
+    catch(error){
+        res.status(500).send({ message: "Internal Server Error" })
+    }
+
+});
+
 
 module.exports = router

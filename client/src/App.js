@@ -6,6 +6,7 @@ import Form_Movie from "./components/Form_Movie"
 import Movies from "./components/Movies"
 import Edit from "./components/Edit"
 import LoginAdmin from "./components/LoginAdmin"
+import EditForms from "./components/Edit_forms"
 
 
 function App() {
@@ -28,6 +29,9 @@ function App() {
           { user && <Route path="/movies" exact element={<Movies />} />}
           <Route path="/movies" exact element={<Navigate replace to="/login" />} />
           { admin  && <Route path="/edit" exact element={<Edit />} />}
+          { user  && <Route path="/edit" exact element={<Navigate replace to="/" />} />}
+          <Route path="/edit" exact element={<Navigate replace to="/login" />} />
+          { admin  && <Route path="/formsEdit" exact element={<EditForms />} />}
           { user  && <Route path="/edit" exact element={<Navigate replace to="/" />} />}
           <Route path="/edit" exact element={<Navigate replace to="/login" />} />
         </Routes>

@@ -9,7 +9,7 @@ const Form = () => {
         favMovie: "",
         country: "Poland",
         types: "",
-        rate: "10"
+        rate: ""
     })
 
     const navigate = useNavigate()
@@ -17,7 +17,9 @@ const Form = () => {
     const handleChange = e => {
         setData({ ...data, [e.target.name]: e.target.value })
     }
-
+    const handleCheckbox = e =>{
+        setData({...data, [e.target.name]: data.types+" "+e.target.value})
+    }
 
     const handleLogout = () => {
         localStorage.removeItem("token")
@@ -41,7 +43,7 @@ const Form = () => {
         try {
             const url = "http://localhost:8080/api/forms"
             const { data: res } = await axios.post(url, data)
-            navigate("/form")
+            window.location = "/form"
             console.log(res.message)
         } catch (error) {
             if (
@@ -112,24 +114,24 @@ const Form = () => {
                     </select>
                     <div className={styles.text}>Twoje ulubione kategorie filmów:</div>
                     <div className={styles.checkbox}>
-                        <input type="checkbox" id="1" name="types" value="Horror" onClick={handleChange} />Horrory
-                        <input type="checkbox" id="2" name="types" value="Comedy" onClick={handleChange} />Komedie
-                        <input type="checkbox" id="3" name="types" value="Dramat" onClick={handleChange} />Dramat
-                        <input type="checkbox" id="4" name="types" value="Animation" onClick={handleChange} />Animacja
+                        <input type="checkbox" id="1" name="types" value="Horror" onClick={handleCheckbox} />Horrory
+                        <input type="checkbox" id="2" name="types" value="Comedy" onClick={handleCheckbox} />Komedie
+                        <input type="checkbox" id="3" name="types" value="Dramat" onClick={handleCheckbox} />Dramat
+                        <input type="checkbox" id="4" name="types" value="Animation" onClick={handleCheckbox} />Animacja
                     </div>
                     <div className={styles.text}>Oceń naszą stronę:</div>
                     <div className={styles.radio}>
-                        <label><input type="radio" name="rate" onChange={handleChange} value="0" />0</label>
-                        <label><input type="radio" name="rate" onChange={handleChange} value="1" />1</label>
-                        <label><input type="radio" name="rate" onChange={handleChange} value="2" />2</label>
-                        <label><input type="radio" name="rate" onChange={handleChange} value="3" />3</label>
-                        <label><input type="radio" name="rate" onChange={handleChange} value="4" />4</label>
-                        <label><input type="radio" name="rate" onChange={handleChange} value="5" />5</label>
-                        <label><input type="radio" name="rate" onChange={handleChange} value="6" />6</label>
-                        <label><input type="radio" name="rate" onChange={handleChange} value="7" />7</label>
-                        <label><input type="radio" name="rate" onChange={handleChange} value="8" />8</label>
-                        <label><input type="radio" name="rate" onChange={handleChange} value="9" />9</label>
-                        <label><input type="radio" name="rate" onChange={handleChange} value="10" checked />10</label>
+                        <label><input type="radio" name="rate" onChange={handleChange} value="0" /> 0</label>
+                        <label><input type="radio" name="rate" onChange={handleChange} value="1" /> 1</label>
+                        <label><input type="radio" name="rate" onChange={handleChange} value="2" /> 2</label>
+                        <label><input type="radio" name="rate" onChange={handleChange} value="3" /> 3</label>
+                        <label><input type="radio" name="rate" onChange={handleChange} value="4" /> 4</label>
+                        <label><input type="radio" name="rate" onChange={handleChange} value="5" /> 5</label>
+                        <label><input type="radio" name="rate" onChange={handleChange} value="6" /> 6</label>
+                        <label><input type="radio" name="rate" onChange={handleChange} value="7" /> 7</label>
+                        <label><input type="radio" name="rate" onChange={handleChange} value="8" /> 8</label>
+                        <label><input type="radio" name="rate" onChange={handleChange} value="9" /> 9</label>
+                        <label><input type="radio" name="rate" onChange={handleChange} value="10"/> 10</label>
                     </div>
                     {error && <div
                         className={styles.error_msg}>{error}</div>}

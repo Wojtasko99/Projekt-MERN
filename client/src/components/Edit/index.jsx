@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react"
+import { useRef, useState, useEffect, Component } from "react"
 import axios from "axios"
 import { Link, useNavigate } from "react-router-dom"
 import styles from "./styles.module.css"
@@ -29,6 +29,15 @@ const Edit = () => {
     const handleChange2 = e => {
         setData2({ ...data2, [e.target.name]: e.target.value })
     }
+    
+
+    const handleSelect = e => {
+        const sort = e.target.value;
+        if (sort === "forms") {
+            window.location = "/formsEdit"
+        }
+    }
+    
 
     
     const handleLogout = () => {
@@ -130,6 +139,12 @@ const Edit = () => {
             </nav>
             <div className={styles.tytul}>
             <h1>Edycja danych</h1>
+            <form>
+                <select className={styles.select} name="select" onChange={handleSelect}>
+                    <option value="movies">Edytuj filmy</option>
+                    <option value="forms">Przeglądaj formularze</option>
+                </select>
+            </form>
             </div>
             
             <div className="container">

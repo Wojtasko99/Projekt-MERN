@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component,useState } from 'react';
 import axios from 'axios';
 import DataTable from './data-table';
 import styles from "./styles.module.css"
@@ -21,15 +21,45 @@ const handleMovies = () => {
 const handleEdit = () => {
     window.location = "/edit"
 }
+const handleSelect = e => {
+    const sort = e.target.value;
+    if (sort === "movies") {
+        window.location = "/Edit"
+    }
+}
+
+
 export default class Users extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { usersCollection: [] };
+        this.state = { usersCollection: [], data: "" };
+        
+    }
+    
+    
+    handleDelete = e => {
+        this.setState({data: "ObjectId('"+e.target.value+"')"})
+    }
+    handleSubmitUsun(){
+        try{
+            const url = "http://localhost:8080/api/form/deleteForm"
+            res.send(this.data)
+            const { data: res } =  axios.post(url, this.data)
+            console.log(res.message)
+        }catch{
+            console.log(this.data)
+        }  
     }
 
+    handleReset(){
+        window.location="/formsEdit"
+    }
+    
+
+
     componentDidMount() {
-        axios.get("http://localhost:8080/api/edit/fetchMovies")
+        axios.get("http://localhost:8080/api/forms/fetchForms")
             .then(res => {
                 this.setState({ usersCollection: res.data });
             })
@@ -66,14 +96,26 @@ export default class Users extends Component {
 
             </nav>
                 <div className="container">
+                <div className={styles.tytul}>
+                <h1>Edycja danych</h1>
+            <form>
+                <select className={styles.select} name="select" onChange={handleSelect}>
+                    <option value="forms">Przeglądaj formularze</option>
+                    <option value="movies">Edytuj filmy</option>
+                </select>
+            </form>
+            </div>
                     
                     <div className={styles.table}>
                     <Table striped bordered hover size="sm" style={{background: "#d2cbbf"}}>
                         <thead className="thead-dark">
                             <tr>
-                                <th>Rezyser</th>
-                                <th>Tytul</th>
-                                <th>Ocena</th>
+                                <th>ID</th>
+                                <th>Email</th>
+                                <th>Favorite Movie</th>
+                                <th>Country</th>
+                                <th>Favorite Types</th>
+                                <th>Site rate</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -81,6 +123,7 @@ export default class Users extends Component {
                         </tbody>
                     </Table>
                     </div>
+                    
                 </div>
                 <div className={styles.navbar}></div>
             </div>

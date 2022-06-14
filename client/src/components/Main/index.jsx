@@ -52,18 +52,14 @@ const Main = () => {
                         <img src={maveric} className={styles.photo}></img>
 
                         <div className={styles.movie_button}>
-                            <button className={styles.white_btn} >
-                                Sprawdź
-                            </button>
+                        <a href="https://www.youtube.com/watch?v=Yg1TEuX1xH0" className={styles.white_btn} target="_blank">Zwiastun</a>
                         </div>
                     </div>
                     <div className={styles.movie_main}>
                         <img src={batman} className={styles.photo}></img>
 
                         <div className={styles.movie_button}>
-                            <button className={styles.white_btn}>
-                                Sprawdź
-                            </button>
+                            <a href="https://www.youtube.com/watch?v=mqqft2x_Aa4" className={styles.white_btn} target="_blank">Zwiastun</a>
                         </div>
                     </div>
 
@@ -71,9 +67,7 @@ const Main = () => {
                         <img src={strange} className={styles.photo}></img>
 
                         <div className={styles.movie_button}>
-                            <button className={styles.white_btn}>
-                                Sprawdź
-                            </button>
+                        <a href="https://www.youtube.com/watch?v=aWzlQ2N6qqg" className={styles.white_btn} target="_blank">Zwiastun</a>
                         </div>
                     </div>
                 </div>
