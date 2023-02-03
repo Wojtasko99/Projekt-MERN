@@ -1,7 +1,4 @@
-# Szkielety_Projekt
- Projekt na szkielety
-
-Autor: Damian Wojtal 6.10 IO
+Autor: Damian Wojtal
 
 W celu poprawnego działania projektu należy:
 1. Uruchomić MongoDB lokalnie na komputerze
